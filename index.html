@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO₂ Emission Calculator for Coal Mining</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Adding Chart.js for charts -->
+</head>
+<body>
+    <div class="container">
+        <h1>CO₂ Emission Calculator for Coal Mining</h1>
+
+        <h2>1. Emissions from Coal Transportation</h2>
+        <form id="transportationForm">
+            <label for="fuelConsumption">Fuel Consumption (liters):</label>
+            <input type="number" id="fuelConsumption" name="fuelConsumption" required><br>
+            
+            <label for="emissionFactorFuel">Emission Factor (kg CO₂ per liter):</label>
+            <input type="number" id="emissionFactorFuel" name="emissionFactorFuel" value="2.68" required><br>
+            
+            <label for="distance">Distance (km):</label>
+            <input type="number" id="distance" name="distance" required><br>
+            
+            <label for="fuelPerDistance">Fuel Consumption per Distance (liters per ton-km):</label>
+            <input type="number" id="fuelPerDistance" name="fuelPerDistance" required><br>
+            
+            <label for="tonnage">Tonnage of Coal Transported (tons):</label>
+            <input type="number" id="tonnage" name="tonnage" required><br>
+            
+            <button type="button" onclick="calculateTransportation()">Calculate Transportation Emissions</button>
+        </form>
+        <p id="transportationResult"></p>
+
+        <h2>2. Emissions from Coal Processing</h2>
+        <form id="processingForm">
+            <label for="coalProcessed">Coal Processed (tons):</label>
+            <input type="number" id="coalProcessed" name="coalProcessed" required><br>
+            
+            <label for="emissionFactorProcessing">Emission Factor (tons CO₂ per ton):</label>
+            <input type="number" id="emissionFactorProcessing" name="emissionFactorProcessing" value="0.02" required><br>
+            
+            <button type="button" onclick="calculateProcessing()">Calculate Processing Emissions</button>
+        </form>
+        <p id="processingResult"></p>
+
+        <h2>3. Methane Emissions from Coal Mines</h2>
+        <form id="methaneForm">
+            <label for="coalProduction">Coal Production (tons):</label>
+            <input type="number" id="coalProduction" name="coalProduction" required><br>
+            
+            <label for="methaneFactor">Methane Emission Factor (tons CH₄ per ton):</label>
+            <input type="number" id="methaneFactor" name="methaneFactor" value="0.003" required><br>
+            
+            <label for="gwp">Global Warming Potential (GWP) of Methane:</label>
+            <input type="number" id="gwp" name="gwp" value="25" required><br>
+            
+            <button type="button" onclick="calculateMethane()">Calculate Methane Emissions</button>
+        </form>
+        <p id="methaneResult"></p>
+
+        <h2>Total Emissions</h2>
+        <button type="button" onclick="calculateTotalEmissions()">Calculate Total CO₂ Emissions</button>
+        <p id="totalResult"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
